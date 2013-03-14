@@ -1,0 +1,17 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="span6 offset4">
+
+    <p>Enter a URL to shorten</p>
+    <form id="shortener" method="POST" action="/">
+      <div class="input-append">
+	<input class="span4" id="url" name="url" type="text">
+	<button class="btn" type="submit">Shorten</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock body %}
+

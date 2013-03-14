@@ -1,0 +1,2 @@
+recursive-include url_shortener/templates *
+recursive-include url_shortener/static *

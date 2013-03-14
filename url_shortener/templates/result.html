@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html' %}
+
+{% block body %}
+<div class="row-fluid">
+
+  <div class="span6 offset4">
+    You can now access {{ result['url'] }} at <a href="/{{result['code']}}">{{result['shorturl']}}</a>
+    
+    <ul class="nav nav-pills">
+      <li><a href="/">take me home</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock body %}
