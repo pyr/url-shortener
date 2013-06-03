@@ -1,5 +1,5 @@
-url-shortener: demo URL shortening service in python
-====================================================
+Gurl-shortener: demo URL shortening service in python
+=====================================================
 
 A demo application for a very simple URL shortening service
 
@@ -52,10 +52,9 @@ The service can simply be started by invoking: ``url-shortener``, alternately de
 can be done with _gunicorn. To start the service with gunicorn with 8 worker processes for
 instance, the following can be used:
 
-``
-  gunicorn  -w 8 --log-file=/var/log/url-shortener/gunicorn.log --log-level=info url_shortener:app
-``
+::
 
+  gunicorn  -w 8 --log-file=/var/log/url-shortener/gunicorn.log --log-level=info url_shortener:app
 
 .. _flask: http://flask.pocoo.org
 .. _bootstrap: http://twitter.github.io/bootstrap
