@@ -14,7 +14,7 @@ def read(*parts):
 setup(name='url_shortener',
       version='0.5.8',
       description='Simple URL Shortener',
-      long_description=read(),
+      long_description=read('README.rst'),
       url='https://github.com/pyr/url-shortener',
       author='Pierre-Yves Ritschard',
       author_email='pyr@spootnik.org',
