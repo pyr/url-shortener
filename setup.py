@@ -1,3 +1,5 @@
+import codecs
+from os import path
 from setuptools import setup, find_packages
 
 with open('requirements.txt') as reqs:
@@ -5,11 +7,14 @@ with open('requirements.txt') as reqs:
         line and not line.startswith('--'))
     ]
 
-print("found install_requires: " + str(install_requires))
+def read(*parts):
+    return codecs.open(path.join(path.dirname(__file__), *parts),
+                       encoding="utf-8").read()
 
 setup(name='url_shortener',
-      version='0.5.6',
+      version='0.5.8',
       description='Simple URL Shortener',
+      long_description=read(),
       url='https://github.com/pyr/url-shortener',
       author='Pierre-Yves Ritschard',
       author_email='pyr@spootnik.org',
