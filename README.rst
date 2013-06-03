@@ -5,24 +5,24 @@ A demo application for a very simple URL shortening service
 
 The app relies on:
 
-- _flask: A python micro web framework
-- _bootstrap: A CSS & JS framework
+- flask_: A python micro web framework
+- bootstrap_: A CSS & JS framework
 
 
 Installing
 ----------
 
-Pip:
+Pip::
 
-    ``pip install url_shortener``
+    pip install url_shortener
 
 Pypi:
 
     https://pypi.python.org/pypi/url_shortener
 
-Manual:
+Manual::
 
-    ``python setup.py install``
+    python setup.py install
 
 Configuration
 -------------
@@ -43,13 +43,13 @@ Logging
 -------
 
 When not run in debug mode, the application will output logs for consumption by
-logstash, using _logstash_formatter
+logstash, using logstash_formatter_
 
 Usage
 -----
 
 The service can simply be started by invoking: ``url-shortener``, alternately deployments
-can be done with _gunicorn. To start the service with gunicorn with 8 worker processes for
+can be done with gunicorn_. To start the service with gunicorn with 8 worker processes for
 instance, the following can be used:
 
 ::
