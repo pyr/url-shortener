@@ -1,8 +1,13 @@
-from setuptools import setup, find_packages
+`from setuptools import setup, find_packages
+
+with open('requirements.txt') as reqs:
+    install_requires = [line for line in reqs.read().split('\n') if (
+        line and not line.startswith('--'))
+    ]
 
 print(find_packages())
 setup(name='url_shortener',
-      version='0.5.0',
+      version='0.5.4',
       description='Simple URL Shortener',
       url='https://github.com/pyr/url-shortener',
       author='Pierre-Yves Ritschard',
@@ -10,6 +15,14 @@ setup(name='url_shortener',
       license='Private',
       packages=find_packages(),
       include_package_data=True,
-      install_requires=['redis', 'flask'],
+      install_requires=install_requires,
       scripts=['bin/url-shortener'],
+      classifiers=[
+          'Development Status :: 5 - Production/Stable',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
+          'Natural Language :: English',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 3'
+      ],
       zip_safe=False)

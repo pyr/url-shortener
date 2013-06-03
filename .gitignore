@@ -15,6 +15,7 @@
 
 # Ignore Sass' cache
 /.sass-cache
+/env
 
 # python compiled files
 *.pyc
