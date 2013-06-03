@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 
 from url_shortener import app
-from url_shortener import config
-app.run(debug=True, port=config.LISTEN_PORT, host=config.LISTEN_HOST)
+from url_shortener.config import LISTEN_PORT, LISTEN_HOST
+app.run(debug=True, port=LISTEN_PORT, host=LISTEN_HOST)

@@ -36,8 +36,11 @@ variables can be tweaked:
 - ``URL_PREFIX``: URL scheme for your short url host
 - ``LISTEN_HOST``: Address to bind to for the short url service
 - ``LISTEN_PORT``: Port to bind to
-- ``RIEMANN_HOST``: Address to use to contact riemann
-- ``RIEMANN_PORT``: Port to use to contact riemann
+- ``RIEMANN_HOST``: Address to use to contact riemann, defaults to ``127.0.0.1``
+- ``RIEMANN_PORT``: Port to use to contact riemann, defaults to ``5555``
+- ``RIEMANN_PROTOCOL``: Riemann protocol to use, defaults to ``UDP``
+- ``LOG_FILE_PATH``: Where to log, no defaults
+- ``LOG_LEVEL``: level at which to log, defaults to ``DEBUG``
 
 Logging
 -------
