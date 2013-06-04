@@ -12,7 +12,7 @@ def read(*parts):
                        encoding="utf-8").read()
 
 setup(name='url_shortener',
-      version='0.5.16',
+      version='0.5.18',
       description='Simple URL Shortener',
       long_description=read('README.rst'),
       url='https://github.com/pyr/url-shortener',

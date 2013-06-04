@@ -10,8 +10,16 @@ shrt = UrlShortener()
 logger = logging.getLogger()
 
 logger.info("starting up")
-riemann_client = Client(host=config.RIEMANN_HOST, port=config.RIEMANN_PORT)
-riemann_client.send({'metric': 1, 'service': 'url-shortener.startup', 'ttl': 3600})
+try:
+    riemann_client = Client(host=config.RIEMANN_HOST,
+                            port=config.RIEMANN_PORT)
+    riemann_client.send({'metric': 1, 
+                         'service': 
+                         'url-shortener.startup', 
+                         'ttl': 3600})
+except:
+    riemann_client=None
+
 wrap_riemann = riemann_wrapper(client=riemann_client, prefix='url-shortener.')
 
 ## template pushing routes
