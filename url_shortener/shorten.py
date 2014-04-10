@@ -28,7 +28,7 @@ class UrlShortener:
         key.
         
         """
-        return base64.b64encode(md5.new(url).digest()[-4:]).replace('=','')
+        return base64.b64encode(md5.new(url).digest()[-4:]).replace('=','').replace('/','_')
 
     def shorten(self, url):
         """
