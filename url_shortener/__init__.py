@@ -4,6 +4,7 @@ from shorten import UrlShortener
 from functools import wraps
 from bernhard import Client
 from riemann_wrapper import riemann_wrapper
+import urlparse
 
 app = Flask(__name__)
 shrt = UrlShortener()
@@ -57,16 +58,24 @@ def lookup(code):
 @wrap_riemann('creation')
 def shorten_url():
     if request.json and 'url' in request.json:
-        url = request.json['url']
-        res = shrt.shorten(request.json['url'])
+        u = urlparse.urlparse(request.json['url'])
+        if u.netloc == '':
+            url = 'http://' + request.json['url']
+        else:
+            url = request.json['url']
+        res = shrt.shorten(url)
         logger.debug("shortened %s to %s" % (url, res))
         response = make_response(json.dumps(res))
         response.headers['Content-Type'] = 'application/json'
         return response
 
     elif request.form and 'url' in request.form:
-        url = request.form['url']
-        res = shrt.shorten(request.form['url'])
+        u = urlparse.urlparse(request.form['url'])
+        if u.netloc == '':
+            url = 'http://' + request.form['url']
+        else:
+            url = request.form['url']
+        res = shrt.shorten(url)
         logger.debug("shortened %s to %s" % (url, res))
         return render_template('result.html', result=res)
 
