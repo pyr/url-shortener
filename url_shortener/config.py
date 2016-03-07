@@ -12,6 +12,7 @@ LISTEN_HOST = os.getenv("LISTEN_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.getenv("LISTEN_PORT", "8080"))
 RIEMANN_HOST = os.getenv("RIEMANN_HOST", "127.0.0.1")
 RIEMANN_PORT = int(os.getenv("RIEMANN_PORT", "5555"))
+REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", None)
 
 
 LOG_FILE_PATH = os.getenv('LOG_FILE_PATH')
