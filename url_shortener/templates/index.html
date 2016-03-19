@@ -3,15 +3,18 @@
 {% block body %}
 <div class="row-fluid">
   <div class="span6 offset4">
-
     <p>Enter a URL to shorten</p>
     <form id="shortener" method="POST" action="/">
       <div class="input-append">
-	<input class="span4" id="url" name="url" type="text">
-	<button class="btn" type="submit">Shorten</button>
+        <input class="span4" id="url" name="url" type="text" onfocus="inputFocus(this)"
+          onblur="inputBlur(this)" value="Long URL"><br>
+        <input class="span4" id="surl" name="surl" type="text" onfocus="inputFocus(this)"
+          onblur="inputBlur(this)" value="Optional, ShortURL"><br>
+	    <button class="btn" type="submit">Shorten</button>
       </div>
     </form>
   </div>
 </div>
+<script src="/static/js/js.js"></script>
 {% endblock body %}
 

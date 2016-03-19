@@ -63,7 +63,13 @@ def shorten_url():
             url = 'http://' + request.json['url']
         else:
             url = request.json['url']
-        res = shrt.shorten(url)
+
+        if 'surl' in request.json.keys():
+            surl = request.form['surl'].split()[0].lower()
+            res = shrt.shorten(url, surl)
+        else:
+            res = shrt.shorten(url)
+
         logger.debug("shortened %s to %s" % (url, res))
         response = make_response(json.dumps(res))
         response.headers['Content-Type'] = 'application/json'
@@ -75,7 +81,13 @@ def shorten_url():
             url = 'http://' + request.form['url']
         else:
             url = request.form['url']
-        res = shrt.shorten(url)
+
+        if request.form['surl'] == 'Optional, ShortURL':
+            surl = None
+        else:
+            surl = request.form['surl'].split()[0].lower()
+
+        res = shrt.shorten(url, surl)
         logger.debug("shortened %s to %s" % (url, res))
         return render_template('result.html', result=res)
 
