@@ -82,7 +82,7 @@ def shorten_url():
         else:
             url = request.form['url']
 
-        if request.form['surl'] == 'Optional, ShortURL':
+        if request.form['surl'] == 'Optional, ShortURL' or request.form['surl'] == '':
             surl = None
         else:
             surl = request.form['surl'].split()[0].lower()
