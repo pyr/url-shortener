@@ -36,30 +36,17 @@ variables can be tweaked:
 - ``URL_PREFIX``: URL scheme for your short url host
 - ``LISTEN_HOST``: Address to bind to for the short url service
 - ``LISTEN_PORT``: Port to bind to
-- ``RIEMANN_HOST``: Address to use to contact riemann, defaults to ``127.0.0.1``
-- ``RIEMANN_PORT``: Port to use to contact riemann, defaults to ``5555``
-- ``RIEMANN_PROTOCOL``: Riemann protocol to use, defaults to ``UDP``
-- ``LOG_FILE_PATH``: Where to log, no defaults
-- ``LOG_LEVEL``: level at which to log, defaults to ``DEBUG``
-
-Logging
--------
-
-When not run in debug mode, the application will output logs for consumption by
-logstash, using logstash_formatter_
 
 Usage
 -----
 
-The service can simply be started by invoking: ``url-shortener``, alternately deployments
-can be done with gunicorn_. To start the service with gunicorn with 8 worker processes for
-instance, the following can be used:
+The service can simply be started by invoking: ``url-shortener``, alternately deployments can
+be done via Docker:
 
 ::
 
-  gunicorn  -w 8 --log-file=/var/log/url-shortener/gunicorn.log --log-level=info url_shortener:app
+  docker run --rm -p 5000:5000 url-shortener:latest
 
 .. _flask: http://flask.pocoo.org
 .. _bootstrap: http://twitter.github.io/bootstrap
-.. _logstash_formatter: https://github.com/exoscale/python-logstash-formatter
 .. _gunicorn: http://gunicorn.org
